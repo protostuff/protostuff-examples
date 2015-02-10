@@ -1,0 +1,20 @@
+package search;
+
+option java_package = "io.protostuff.example.search";
+
+message BasicSearchRequest {
+    required string keyword = 1;
+}
+
+message ExtendedSearchRequest {
+    repeated string keywords = 1;
+}
+
+message SearchResponse {
+    repeated string result = 1;
+}
+
+service Search {
+    rpc basicSearch (BasicSearchRequest) returns (SearchResponse);
+    rpc extendedSearch (ExtendedSearchRequest) returns (SearchResponse);
+}

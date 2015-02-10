@@ -1,0 +1,27 @@
+group service : base;
+
+service_block(service, module, options) ::= <<
+package <service.proto.javaPackageName>;
+
+import javax.annotation.Generated;
+
+import com.google.common.util.concurrent.ListenableFuture;
+
+@Generated("<module.generator>")
+public interface <service.name>Service {
+  <service:service_methods(service=it, options=options)>
+
+}
+
+>>
+
+service_methods(service, module, options) ::= <<
+
+<service.rpcMethods:
+        {v|<service:service_method(method=v, service=service, module=module, options=options)>};
+        separator="\n\n">
+>>
+
+service_method(method, service, module, options) ::= <<
+ListenableFuture\<<method.returnType.name>\> <method.name>(<method.argType.name> request);
+>>

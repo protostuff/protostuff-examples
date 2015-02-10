@@ -9,7 +9,44 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <modules>
+  <properties>
+    <protostuff.version>1.4.0-SNAPSHOT</protostuff.version>
+  </properties>
 
+  <modules>
+    <module>code-generation</module>
   </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.protostuff</groupId>
+        <artifactId>protostuff-api</artifactId>
+        <version>${protostuff.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.protostuff</groupId>
+        <artifactId>protostuff-core</artifactId>
+        <version>${protostuff.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>18.0</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.protostuff</groupId>
+          <artifactId>protostuff-maven-plugin</artifactId>
+          <version>${protostuff.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
 </project>
