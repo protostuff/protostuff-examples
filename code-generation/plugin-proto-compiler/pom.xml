@@ -28,7 +28,7 @@
               <outputDir>target/generated-sources</outputDir>
               <output>
                 java_bean,
-                ${project.basedir}/src/main/stg/$Service.java.stg
+                src/main/stg/$Service.java.stg
               </output>
             </protoModule>
           </protoModules>
