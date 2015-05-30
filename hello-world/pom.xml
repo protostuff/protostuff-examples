@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>code-generation</artifactId>
+        <artifactId>protostuff-examples</artifactId>
         <groupId>io.protostuff.examples</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>plugin-proto-compiler</artifactId>
+    <artifactId>hello-world</artifactId>
 
     <dependencies>
         <dependency>
@@ -18,15 +18,9 @@
             <version>${protostuff.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -37,20 +31,11 @@
                 <artifactId>protostuff-maven-plugin</artifactId>
                 <version>${protostuff.version}</version>
                 <configuration>
-                    <properties>
-                        <property>
-                            <name>ppc.check_filename_placeholder</name>
-                            <value>true</value>
-                        </property>
-                    </properties>
                     <protoModules>
                         <protoModule>
                             <source>src/main/proto</source>
                             <outputDir>target/generated-sources/proto</outputDir>
-                            <output>
-                                java_bean,
-                                src/main/stg/$Service.java.stg
-                            </output>
+                            <output>java_bean</output>
                         </protoModule>
                     </protoModules>
                 </configuration>

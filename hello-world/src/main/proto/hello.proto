@@ -1,0 +1,15 @@
+package search;
+
+option java_package = "io.protostuff.examples";
+
+message HelloRequest {
+    optional string name = 1;
+}
+
+message HelloResponse {
+    optional string greeting = 1;
+}
+
+service HelloService {
+    rpc hello (HelloRequest) returns (HelloResponse);
+}

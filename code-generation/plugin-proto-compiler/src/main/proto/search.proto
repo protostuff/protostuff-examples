@@ -1,6 +1,6 @@
 package search;
 
-option java_package = "io.protostuff.example.search";
+option java_package = "io.protostuff.examples";
 
 message BasicSearchRequest {
     required string keyword = 1;
