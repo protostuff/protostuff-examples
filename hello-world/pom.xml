@@ -30,12 +30,19 @@
                 <groupId>io.protostuff</groupId>
                 <artifactId>protostuff-maven-plugin</artifactId>
                 <version>${protostuff.version}</version>
+
                 <configuration>
                     <protoModules>
                         <protoModule>
                             <source>src/main/proto</source>
                             <outputDir>target/generated-sources/proto</outputDir>
                             <output>java_bean</output>
+                            <options>
+                                <property>
+                                    <name>generate_field_map</name>
+                                    <value>true</value>
+                                </property>
+                            </options>
                         </protoModule>
                     </protoModules>
                 </configuration>
