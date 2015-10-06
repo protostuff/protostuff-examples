@@ -19,6 +19,7 @@
     <modules>
         <module>code-generation</module>
         <module>hello-world</module>
+        <module>multimodule-imports</module>
     </modules>
 
     <build>

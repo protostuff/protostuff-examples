@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>multimodule-imports</artifactId>
+        <groupId>io.protostuff.examples</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>b</artifactId>
+
+    <dependencies>
+        <!-- Add dependency to "a" - it contains imported proto file and generated classes. -->
+        <!-- Each maven module compile only its own proto-s. -->
+        <dependency>
+            <groupId>io.protostuff.examples</groupId>
+            <artifactId>a</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>1.3.6</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/proto</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-maven-plugin</artifactId>
+                <version>${protostuff.version}</version>
+
+                <configuration>
+                    <protoModules>
+                        <protoModule>
+                            <source>${project.basedir}/src/main/proto</source>
+                            <outputDir>${project.build.directory}/generated-sources/proto</outputDir>
+                            <output>java_bean</output>
+                            <options>
+                                <property>
+                                    <name>generate_field_map</name>
+                                    <value>true</value>
+                                </property>
+                            </options>
+                        </protoModule>
+                    </protoModules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

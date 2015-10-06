@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+package io.pt.a;
+
+message A {
+    optional string text = 1;
+}

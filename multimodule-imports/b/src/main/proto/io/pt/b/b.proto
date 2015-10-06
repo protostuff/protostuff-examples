@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package io.pt.b;
+
+import "io/pt/a/a.proto";
+
+message B {
+    // use message defined in module "a"
+    optional A a = 1;
+}
