@@ -5,13 +5,18 @@
     <parent>
         <artifactId>code-generation</artifactId>
         <groupId>io.protostuff.examples</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>plugin-proto-compiler</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>${annotation-api.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.protostuff</groupId>
             <artifactId>protostuff-core</artifactId>
